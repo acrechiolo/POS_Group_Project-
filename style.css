@@ -138,9 +138,12 @@ position: relative;
     font-size: x-large;
 }
 
+
 .book {
     background-color: #d99e32;
     font-family: 'albaSuper';
+    text-align: center;
+    font-size: x-large;
 
     
 }
@@ -149,6 +152,12 @@ position: relative;
 .game {
 background-color: aqua;
 font-family: 'albaSuper';
+text-align: center;
+font-size: x-large;
 
+}
+
+footer {
+    display: none;
 }
 
