@@ -1,0 +1,40 @@
+@font-face{
+    font-family: 'truckin';
+    src: url('./assets/Fonts/truckin.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'maccos_light';
+    src: url('./assets/Fonts/maccos_light.otf') format('opentype');
+}
+
+@font-face{
+    font-family: 'albaSuper';
+    src: url('./assets/Fonts/alba_super.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: 'moscoso';
+    src: url('./assets/Fonts/moscoso.ttf') format('truetype');
+}
+.truckin {
+    font-family: 'truckin';
+    font-size: 50px;
+    color: #6fa692;
+}
+.maccos {
+    font-family: 'maccos_light';
+    font-size: 50px;
+    color: #d99e32;
+}
+
+.albaSuper {
+    font-family: 'albaSuper';
+    font-size: 50px;
+    color: #bf3326;
+}
+
+.moscoso {
+    font-family: 'moscoso';
+    font-size: 50px;
+    color: #6fa692;
+}
