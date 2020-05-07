@@ -1,3 +1,16 @@
+/*RESETS*/
+
+.header, .header-content, .logo, body, p {
+margin: 0;
+
+}
+
+ul {
+    padding: 0;
+}
+
+/*FONTS*/
+
 @font-face{
     font-family: 'truckin';
     src: url('./assets/Fonts/truckin.ttf') format('truetype');
@@ -37,4 +50,49 @@
     font-family: 'moscoso';
     font-size: 50px;
     color: #6fa692;
+}
+
+/*MOBILE VIEW*/
+body {
+    background-color: #f2e2ce;
+}
+
+.header {
+    background-color: #6fa692;
+}
+
+.header-content{
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 5px;
+}
+
+.logo{
+    font-family: 'moscoso';
+}
+
+.nav-list{
+display: flex;
+list-style: none;
+}
+
+.nav-item {
+    margin-left: 5px;
+}
+
+.nav-link {
+    text-decoration: none;
+}
+
+.book {
+    background-color: #d99e32;
+}
+
+.game {
+background-color: aqua;
+}
+
+.music {
+    background-color: brown;
 }
