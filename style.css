@@ -1,6 +1,6 @@
 /*RESETS*/
 
-.header, .header-content, .logo, body, p {
+.header, .header-content, .logo, body, p, div {
 margin: 0;
 
 }
@@ -85,11 +85,17 @@ list-style: none;
     text-decoration: none;
 }
 
-.music {
-    background-color: brown;
+
+main {
+flex: 1;
+margin: 0 30px;
 }
 
-.vinyl-box {
+/* .vinyl-container, .book-container, .game-container {
+    width: 431px;
+    height: 124px;
+} */
+.vinyl-box, .book-box, .game-box {
     border: 2px solid black;
     display: flex;
     justify-content: space-between;
@@ -99,9 +105,14 @@ list-style: none;
 
 }
 
+.para-button {
+display: flex;
+flex-direction: column;
+justify-content: center;
+position: relative;
+}
+
 .button{
-    display: flex;
-    flex-direction: column;
     border-radius: 15px;
     background-color: #40180f;
     padding: 5px;
@@ -109,6 +120,10 @@ list-style: none;
     color: white;
     width: 50%;
     text-align: center;
+    display: inline-block;
+    margin-top: 20px;
+    position: static;
+
 }
 
 .picture {
@@ -116,29 +131,24 @@ list-style: none;
     width: 100px;
 }
 
+.music {
+    background-color: brown;
+    font-family: 'albaSuper';
+    text-align: center;
+    font-size: x-large;
+}
+
 .book {
     background-color: #d99e32;
-}
-.book-box {
-    border: 2px solid black;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px;
-    padding: 10px;
+    font-family: 'albaSuper';
 
+    
 }
+
 
 .game {
 background-color: aqua;
-}
-
-.game-box {
-    border: 2px solid black;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px;
-    padding: 10px;
+font-family: 'albaSuper';
 
 }
+
