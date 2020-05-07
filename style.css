@@ -95,14 +95,20 @@ list-style: none;
     justify-content: space-between;
     align-items: center;
     margin: 10px;
-    padding: 5px;
+    padding: 10px;
 
 }
 
-.para-button {
+.button{
     display: flex;
     flex-direction: column;
-   
+    border-radius: 15px;
+    background-color: #40180f;
+    padding: 5px;
+    font-family: 'albaSuper';
+    color: white;
+    width: 50%;
+    text-align: center;
 }
 
 .picture {
@@ -113,8 +119,26 @@ list-style: none;
 .book {
     background-color: #d99e32;
 }
+.book-box {
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+
+}
 
 .game {
 background-color: aqua;
 }
 
+.game-box {
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+
+}
