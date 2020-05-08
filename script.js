@@ -18,4 +18,6 @@ mainItems.addEventListener("click", (event) => {
     }
 })
 
+
+
 //SLOOOOP
