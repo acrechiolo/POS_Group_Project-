@@ -121,6 +121,9 @@ margin: 0 30px;
     padding: 2px;
     
 }
+/* .p-name {
+    align-self: flex-start;
+  } */
 
 /* .bought-items {
     display: flex;

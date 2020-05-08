@@ -23,6 +23,8 @@ mainItems.addEventListener("click", (event) => {
         let itemBox = document.createElement("div");
         itemBox.classList.add("item-box");
         //want to create and pull from the info above the cart product/price,
+        let deleteIcon = document.createElement("button");
+        deleteIcon.classList.add("delete-button");
         let itemName = document.createElement("p");
         itemName.classList.add("p-name");
         let itemPrice = document.createElement("p");
@@ -31,7 +33,7 @@ mainItems.addEventListener("click", (event) => {
         //append those selected items into a div
         itemPrice.innerText = `$${amount.toFixed(2)}`;
         itemName.innerText = `${product}`;
-        itemBox.append(itemName, itemPrice);
+        itemBox.append(deleteIcon, itemName, itemPrice);
         cartBox.append(itemBox);
 
         // this makes cart visible on mobile
