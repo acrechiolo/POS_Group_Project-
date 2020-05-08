@@ -184,6 +184,9 @@ aside{
     width: 200px;
 }
 
+.bought-items {
+    background-color: white;
+}
 .music, .book, .game {
     margin-top: 40px;
 }
