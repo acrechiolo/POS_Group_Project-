@@ -23,8 +23,13 @@ mainItems.addEventListener("click", (event) => {
         let itemBox = document.createElement("div");
         itemBox.classList.add("item-box");
         //want to create and pull from the info above the cart product/price,
-        let deleteIcon = document.createElement("button");
-        deleteIcon.classList.add("delete-button");
+        let deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete-button");
+        //this syntax once broke everything
+        let dIcon = document.createElement("i");
+        dIcon.classList.add("fas", "fa-times");
+        dIcon.setAttribute("data-amount", amount);
+        //end broke
         let itemName = document.createElement("p");
         itemName.classList.add("p-name");
         let itemPrice = document.createElement("p");
@@ -33,13 +38,26 @@ mainItems.addEventListener("click", (event) => {
         //append those selected items into a div
         itemPrice.innerText = `$${amount.toFixed(2)}`;
         itemName.innerText = `${product}`;
-        itemBox.append(deleteIcon, itemName, itemPrice);
+        deleteButton.append(dIcon);
+        itemBox.append(deleteButton, itemName, itemPrice);
         cartBox.append(itemBox);
-
         // this makes cart visible on mobile
         cartBox.style.display = "flex";
     }
 });
 
 
+cartBox.addEventListener("click", (event) => {
+    if (event.target.classList.contains("fa-times")) {
 
+        let newSub = currentTotal -= event.target.getAttribute("data-amount");
+        subTotal.innerText = ` Subtotal: $${newSub.toFixed(2)}`;
+        let newTax = newSub * tax;
+        salesTax.innerText = `Sales Tax: $${newTax.toFixed(2)}`;
+        let newTotal = newSub + newTax;
+        finalTotal.innerText = `Current Total: $${newTotal.toFixed(2)}`;
+        event.target.parentNode.parentNode.remove();
+
+
+    }
+})
