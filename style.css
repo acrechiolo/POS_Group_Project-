@@ -176,8 +176,12 @@ position: relative;
 }
 
 .music {
-    background-color: brown;
+    background-image: url(./assets/Background/vinylback2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-size: cover; */
     font-family: 'albaSuper';
+    color: white;
     text-align: center;
     font-size: x-large;
 }
@@ -208,7 +212,13 @@ footer {
 
 
 @media only screen and (min-width: 768px) {
+ body {
+     background-image: url(./assets/3d-diagonal-paper-stripes-retro-wallpaper-vector.jpg);
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
 
+ }
 main {
     display: flex;
     flex-direction: row;

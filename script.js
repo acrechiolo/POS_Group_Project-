@@ -49,7 +49,6 @@ mainItems.addEventListener("click", (event) => {
 
 cartBox.addEventListener("click", (event) => {
     if (event.target.classList.contains("fa-times")) {
-
         let newSub = currentTotal -= event.target.getAttribute("data-amount");
         subTotal.innerText = ` Subtotal: $${newSub.toFixed(2)}`;
         let newTax = newSub * tax;
@@ -57,7 +56,7 @@ cartBox.addEventListener("click", (event) => {
         let newTotal = newSub + newTax;
         finalTotal.innerText = `Current Total: $${newTotal.toFixed(2)}`;
         event.target.parentNode.parentNode.remove();
-
-
     }
 })
+
+
