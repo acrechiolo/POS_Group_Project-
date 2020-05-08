@@ -59,4 +59,34 @@ cartBox.addEventListener("click", (event) => {
     }
 })
 
+let formContainer = document.querySelector(".add-form");
+let checkoutButton = document.querySelector(".checkout-button");
 
+// formContainer.addEventListener("click", (event) => {
+//     if (event.target.classList.contains("checkout-button")) {
+//         formContainer.style.display = "flex";
+//     }
+// })
+
+function openForm() {
+    formContainer.style.display = "block";
+}
+function closeForm() {
+    document.querySelector("").style.display = "none";
+}
+
+formContainer.addEventListener("click", openForm);
+
+
+
+
+// const addFunc = () => {
+//     formContainer.style.display = "flex";
+// }
+
+// formContainer.addEventListener("click", addFunc)
+
+// DD submit after reset
+//display();
+//form.reset();
+//formContainer.style.display = "none";

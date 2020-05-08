@@ -111,6 +111,26 @@ margin: 0 30px;
     display: none;
   
 }
+/* FORM CONTAINER DOM DEMO */
+.form-container{
+    height: 100vh;
+    background-color: rgba(0,0,0,0.8);
+    position: fixed;
+    top: 0;
+    right:0;
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  }
+/* DD */
+  .add-form{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: 20px;
+  }
 
 .item-box {
     display: flex;
