@@ -29,12 +29,15 @@ mainItems.addEventListener("click", (event) => {
         itemPrice.classList.add("p-price");
         let product = event.target.getAttribute("data-product");
         //append those selected items into a div
-        itemPrice.innerText = `${amount}`;
+        itemPrice.innerText = `$${amount.toFixed(2)}`;
         itemName.innerText = `${product}`;
         itemBox.append(itemName, itemPrice);
         cartBox.append(itemBox);
+
+        // this makes cart visible on mobile
+        cartBox.style.display = "flex";
     }
-})
+});
 
 
 

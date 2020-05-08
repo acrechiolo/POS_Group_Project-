@@ -84,6 +84,9 @@ list-style: none;
 .nav-link {
     text-decoration: none;
 }
+.nav2, .nav3 {
+    display: none;
+}
 
 
 main {
@@ -99,26 +102,39 @@ margin: 0 30px;
 .cart {
 
     border: 2px solid black;
-    display: flex;
+    /* display: flex; */
     justify-content: space-between;
     align-items: center;
     margin: 10px;
     padding: 10px;
     flex-direction: column-reverse;
+    display: none;
+  
 }
 
 .item-box {
     display: flex;
     justify-content: space-between;
+    width: 95%;
+    align-items: center;
     border: 1px solid black;
     padding: 2px;
     
 }
 
+/* .bought-items {
+    display: flex;
+    flex-direction: column;
+    
+    
+} */
+
  .p-price {
      margin-left: 10px;
 
  }
+
+
 
 .vinyl-box, .book-box, .game-box {
     border: 2px solid black;
@@ -198,6 +214,9 @@ main {
     
 }
 
+.nav2, .nav3 {
+    display: contents;
+}
 
 .cart {
     display: flex;
