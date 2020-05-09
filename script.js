@@ -50,25 +50,11 @@ let formContainer = document.querySelector(".form-container");
 let cashContainer = document.querySelector(".cash-form-container");
 let creditTotal = document.querySelector(".credit-total");
 let paymentOptions = document.querySelector(".payment-options");
+let checkoutTotalCash = document.querySelector(".cash-checkout-total");
+let checkoutTotalCredit = document.querySelector(".credit-checkout-total");
 
 // let paymentButtons = document.querySelector(".payment-button-container")
 
-
-cartBox.addEventListener("click", (event) => {
-    if (event.target.classList.contains("continue-checkout")) {
-        paymentOptions.style.display = "flex";
-    }
-})
-
-
-paymentOptions.addEventListener("click", (event) => {
-    if (event.target.classList.contains("cash-checkout")) {
-        cashContainer.style.display = "flex";
-
-    } else if (event.target.classList.contains("credit-checkout")) {
-        formContainer.style.display = "flex";
-    }
-})
 
 cartBox.addEventListener("click", (event) => {
     if (event.target.classList.contains("fa-times")) {
@@ -79,9 +65,38 @@ cartBox.addEventListener("click", (event) => {
         let newTotal = newSub + newTax;
         finalTotal.innerText = `Current Total: $${newTotal.toFixed(2)}`;
         event.target.parentNode.parentNode.remove();
+    }
 
+});
+
+
+cartBox.addEventListener("click", (event) => {
+    if (event.target.classList.contains("continue-checkout")) {
+        paymentOptions.style.display = "flex";
     }
 });
+
+// let cTotal = `${currentTotal * tax + currentTotal}`;
+//         console.log(cTotal);
+
+
+
+paymentOptions.addEventListener("click", (event) => {
+    if (event.target.classList.contains("cash-checkout")) {
+        cashContainer.style.display = "flex";
+        let cTax = currentTotal * tax;
+        let cTotal = cTax + currentTotal;
+        checkoutTotalCash.innerText = `Checkout Total: $${cTotal.toFixed(2)}`;
+
+    } else if (event.target.classList.contains("credit-checkout")) {
+        formContainer.style.display = "flex";
+        let cTax = currentTotal * tax;
+        let cTotal = cTax + currentTotal;
+        checkoutTotalCredit.innerText = `Checkout Total: $${cTotal.toFixed(2)}`;
+
+    }
+})
+
 
 
 
@@ -93,7 +108,7 @@ cartBox.addEventListener("click", (event) => {
 
 
 
-// creditTotal.innerText = `Current Total: $${finalTotal}`;
+// creditTotal.innerText = `Current Total: $${ finalTotal } `;
 
 
 
