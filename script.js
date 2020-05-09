@@ -108,7 +108,12 @@ cashContainer.addEventListener("click", (event) => {
         let cTax = currentTotal * tax;
         let cTotal = cTax + currentTotal;
         let changeDue = cashTendered - cTotal;
-        changeGiven.innerText = `Change Due: $${changeDue.toFixed(2)}`;
+        if (cashTendered >= cTotal) {
+            changeGiven.innerText = `Change Due: $${changeDue.toFixed(2)}`;
+        } else {
+            changeGiven.innerText = "You don't have enough money!";
+        }
+
     }
     return false;
     cashForm.reset()
