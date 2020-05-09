@@ -93,6 +93,9 @@ paymentOptions.addEventListener("click", (event) => {
     }
 })
 
+
+//CASH CHANGE DUE FORM - NOT WORKING!!!!
+
 // let changeGiven = document.querySelector(".change-due")
 let cashForm = document.querySelector(".cash-form")
 cashContainer.addEventListener("submit", (event) => {
@@ -105,7 +108,90 @@ cashContainer.addEventListener("submit", (event) => {
         let cTax = currentTotal * tax;
         let cTotal = cTax + currentTotal;
         let changeDue = cashTendered - cTotal;
-        // changeGiven.innerText = "laksdflkajs";
+        console.log(currentTotal);
+    }
+    return false;
+    cashForm.reset()
+
+    console.log(changeDue);
+
+})
+
+
+
+let creditReceiptContainer = document.querySelector(".credit-receipt-container");
+// let creditReceipt = document.querySelector(".credit-receipt");
+creditContainer.addEventListener("click", (event) => {
+    if (event.target.classList.contains("credit-checkout-button")) {
+        let amount = Number(event.target.getAttribute("data-amount"));
+        let sub = currentTotal += amount;
+        subTotal.innerText = `Subtotal: $${sub.toFixed(2)}`;
+        let taxTotal = sub * tax;
+        salesTax.innerText = `Sales Tax: $${taxTotal.toFixed(2)}`;
+        let tTotal = taxTotal + sub;
+        finalTotal.innerText = `Current Total: $${tTotal.toFixed(2)}`;
+        //cart, element div, 
+        let creditReceipt = document.createElement("div");
+        creditReceipt.classList.add("credit-receeipt");
+        //want to create and pull from the info above the cart product/price,
+
+        //this syntax once broke everything
+
+        //end broke
+        let itemName = document.createElement("p");
+        itemName.classList.add("p-name");
+        let itemPrice = document.createElement("p");
+        itemPrice.classList.add("p-price");
+        let product = event.target.getAttribute("data-product");
+        //append those selected items into a div
+        itemPrice.innerText = `$${amount.toFixed(2)}`;
+        itemName.innerText = `${product}`;
+        creditReceipt.append(itemName, itemPrice);
+        creditReceiptContainer.append(creditReceipt);
+        // this makes cart visible on mobile
+        creditReceiptContainer.style.display = "flex";
+
+    }
+});
+
+
+
+
+//         let amountR = (event.target.getAttribute("data-amount"));
+//         let itemNameR = document.createElement("p");
+//         itemNameR.classList.add("p-name");
+//         let itemPriceR = document.createElement("p");
+//         itemPriceR.classList.add("p-price");
+//         let productR = event.target.getAttribute("data-product");
+//         //append those selected items into a div
+//         itemPriceR.innerText = `$${amountR}`;
+//         itemNameR.innerText = `${productR}`;
+//         creditReceipt.append(itemNameR, itemPriceR);
+//         creditReceiptContainer.append(creditReceipt);
+//         console.log(amountR);
+
+//         //display
+//         creditReceiptContainer.style.display = "flex";
+//     }
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var text = document.getElementById('text');
+//     text.value += ' after clicking';
+
+
+      // changeGiven.innerText = "laksdflkajs";
         // let changeDiv = document.createElement("div");
         // changeDiv.classList.add("change-div");
         // let changeP = document.createElement("p");
@@ -114,13 +200,3 @@ cashContainer.addEventListener("submit", (event) => {
         // changeP.innerText = `Change due: $${changeDue.toFixed(2)}`;
         // cashContainer.append(changeDiv);
         // changeGiven.innerText = `Change due: $${changeDue.toFixed(2)}`;
-        console.log(changeDue);
-    }
-    return false;
-    cashForm.reset()
-
-
-})
-
-// var text = document.getElementById('text');
-//     text.value += ' after clicking';
