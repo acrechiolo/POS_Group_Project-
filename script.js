@@ -46,6 +46,29 @@ mainItems.addEventListener("click", (event) => {
     }
 });
 
+let formContainer = document.querySelector(".form-container");
+let cashContainer = document.querySelector(".cash-form-container");
+let creditTotal = document.querySelector(".credit-total");
+let paymentOptions = document.querySelector(".payment-options");
+
+// let paymentButtons = document.querySelector(".payment-button-container")
+
+
+cartBox.addEventListener("click", (event) => {
+    if (event.target.classList.contains("continue-checkout")) {
+        paymentOptions.style.display = "flex";
+    }
+})
+
+
+paymentOptions.addEventListener("click", (event) => {
+    if (event.target.classList.contains("cash-checkout")) {
+        cashContainer.style.display = "flex";
+
+    } else if (event.target.classList.contains("credit-checkout")) {
+        formContainer.style.display = "flex";
+    }
+})
 
 cartBox.addEventListener("click", (event) => {
     if (event.target.classList.contains("fa-times")) {
@@ -56,20 +79,21 @@ cartBox.addEventListener("click", (event) => {
         let newTotal = newSub + newTax;
         finalTotal.innerText = `Current Total: $${newTotal.toFixed(2)}`;
         event.target.parentNode.parentNode.remove();
+
     }
 });
 
-let formContainer = document.querySelector(".form-container");
-
-cartBox.addEventListener("click", (event) => {
-    if (event.target.classList.contains("continue-checkout")) {
-        formContainer.style.display = "flex";
-    }
-})
 
 
+// cartBox.addEventListener("click", (event) => {
+//     if (event.target.classList.contains("continue-checkout")) {
+//         formContainer.style.display = "flex";
+//     }
+// })
 
 
+
+// creditTotal.innerText = `Current Total: $${finalTotal}`;
 
 
 
