@@ -111,28 +111,14 @@ margin: 0 30px;
     display: none;
   
 }
-/* FORM CONTAINER DOM DEMO */
 
-
-/* .payment-options{
-    height: 100vh;
-    background-color: rgba(0,0,0,0.8);
-    position: fixed;
-    top: 0;
-    right:0;
-    width: 100%;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-  } */
-  .add-form, .payment-button-container, .cash-form{
+  .credit-form, .payment-button-container, .cash-form{
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
     padding: 20px;
 }
-.form-container, .payment-options, .cash-form-container{
+.credit-form-container, .payment-options, .cash-form-container{
     height: 100vh;
     background-color: rgba(0,0,0,0.8);
     position: fixed;
@@ -144,21 +130,7 @@ margin: 0 30px;
     align-items: center;
     z-index: 3;
   }
-/* DD */
-  /* .add-form{
-    display: flex;
-    flex-direction: column;
-    background-color: #ffffff;
-    padding: 20px;
-  }
 
-
-  .cash-form {
-    display: flex;
-    flex-direction: column;
-    background-color: #ffffff;
-    padding: 20px;
-  } */
 
 .item-box {
     display: flex;
@@ -169,16 +141,6 @@ margin: 0 30px;
     padding: 2px;
     
 }
-/* .p-name {
-    align-self: flex-start;
-  } */
-
-/* .bought-items {
-    display: flex;
-    flex-direction: column;
-    
-    
-} */
 
  .p-price {
      margin-left: 10px;

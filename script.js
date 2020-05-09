@@ -46,7 +46,7 @@ mainItems.addEventListener("click", (event) => {
     }
 });
 
-let formContainer = document.querySelector(".form-container");
+let creditContainer = document.querySelector(".credit-form-container");
 let cashContainer = document.querySelector(".cash-form-container");
 let creditTotal = document.querySelector(".credit-total");
 let paymentOptions = document.querySelector(".payment-options");
@@ -76,10 +76,6 @@ cartBox.addEventListener("click", (event) => {
     }
 });
 
-// let cTotal = `${currentTotal * tax + currentTotal}`;
-//         console.log(cTotal);
-
-
 
 paymentOptions.addEventListener("click", (event) => {
     if (event.target.classList.contains("cash-checkout")) {
@@ -89,57 +85,10 @@ paymentOptions.addEventListener("click", (event) => {
         checkoutTotalCash.innerText = `Checkout Total: $${cTotal.toFixed(2)}`;
 
     } else if (event.target.classList.contains("credit-checkout")) {
-        formContainer.style.display = "flex";
+        creditContainer.style.display = "flex";
         let cTax = currentTotal * tax;
         let cTotal = cTax + currentTotal;
         checkoutTotalCredit.innerText = `Checkout Total: $${cTotal.toFixed(2)}`;
 
     }
 })
-
-
-
-
-// cartBox.addEventListener("click", (event) => {
-//     if (event.target.classList.contains("continue-checkout")) {
-//         formContainer.style.display = "flex";
-//     }
-// })
-
-
-
-// creditTotal.innerText = `Current Total: $${ finalTotal } `;
-
-
-
-
-
-
-// // formContainer.addEventListener("click", (event) => {
-// //     if (event.target.classList.contains("checkout-button")) {
-// //         formContainer.style.display = "flex";
-// //     }
-// // })
-
-// function openForm() {
-//     formContainer.style.display = "block";
-// }
-// function closeForm() {
-//     document.querySelector("").style.display = "none";
-// }
-
-// formContainer.addEventListener("click", openForm);
-
-
-
-
-// // const addFunc = () => {
-// //     formContainer.style.display = "flex";
-// // }
-
-// // formContainer.addEventListener("click", addFunc)
-
-// // DD submit after reset
-// //display();
-// //form.reset();
-// //formContainer.style.display = "none";
