@@ -96,9 +96,9 @@ paymentOptions.addEventListener("click", (event) => {
 
 //CASH CHANGE DUE FORM - NOT WORKING!!!!
 
-// let changeGiven = document.querySelector(".change-due")
+let changeGiven = document.querySelector(".change-due")
 let cashForm = document.querySelector(".cash-form")
-cashContainer.addEventListener("submit", (event) => {
+cashContainer.addEventListener("click", (event) => {
     if (event.target.classList.contains("cash-pay-button")) {
         event.preventDefault()
         // const data = new FormData(cashForm);
@@ -108,7 +108,7 @@ cashContainer.addEventListener("submit", (event) => {
         let cTax = currentTotal * tax;
         let cTotal = cTax + currentTotal;
         let changeDue = cashTendered - cTotal;
-        console.log(currentTotal);
+        changeGiven.innerText = `Change Due: $${changeDue.toFixed(2)}`;
     }
     return false;
     cashForm.reset()
