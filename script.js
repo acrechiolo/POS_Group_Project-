@@ -57,36 +57,50 @@ cartBox.addEventListener("click", (event) => {
         finalTotal.innerText = `Current Total: $${newTotal.toFixed(2)}`;
         event.target.parentNode.parentNode.remove();
     }
+});
+
+let formContainer = document.querySelector(".form-container");
+
+cartBox.addEventListener("click", (event) => {
+    if (event.target.classList.contains("continue-checkout")) {
+        formContainer.style.display = "flex";
+    }
 })
 
-let formContainer = document.querySelector(".add-form");
-let checkoutButton = document.querySelector(".checkout-button");
-
-// formContainer.addEventListener("click", (event) => {
-//     if (event.target.classList.contains("checkout-button")) {
-//         formContainer.style.display = "flex";
-//     }
-// })
-
-function openForm() {
-    formContainer.style.display = "block";
-}
-function closeForm() {
-    document.querySelector("").style.display = "none";
-}
-
-formContainer.addEventListener("click", openForm);
 
 
 
 
-// const addFunc = () => {
-//     formContainer.style.display = "flex";
+
+
+
+
+
+// // formContainer.addEventListener("click", (event) => {
+// //     if (event.target.classList.contains("checkout-button")) {
+// //         formContainer.style.display = "flex";
+// //     }
+// // })
+
+// function openForm() {
+//     formContainer.style.display = "block";
+// }
+// function closeForm() {
+//     document.querySelector("").style.display = "none";
 // }
 
-// formContainer.addEventListener("click", addFunc)
+// formContainer.addEventListener("click", openForm);
 
-// DD submit after reset
-//display();
-//form.reset();
-//formContainer.style.display = "none";
+
+
+
+// // const addFunc = () => {
+// //     formContainer.style.display = "flex";
+// // }
+
+// // formContainer.addEventListener("click", addFunc)
+
+// // DD submit after reset
+// //display();
+// //form.reset();
+// //formContainer.style.display = "none";
