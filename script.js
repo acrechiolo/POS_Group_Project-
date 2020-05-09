@@ -92,3 +92,9 @@ paymentOptions.addEventListener("click", (event) => {
 
     }
 })
+
+cashContainer.addEventListener("click", (event) => {
+    if (event.target.classList.contains("cash-pay-button")) {
+        let changeTendered = cTotal - 
+    }
+})
