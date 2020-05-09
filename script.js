@@ -93,8 +93,34 @@ paymentOptions.addEventListener("click", (event) => {
     }
 })
 
-cashContainer.addEventListener("click", (event) => {
+// let changeGiven = document.querySelector(".change-due")
+let cashForm = document.querySelector(".cash-form")
+cashContainer.addEventListener("submit", (event) => {
     if (event.target.classList.contains("cash-pay-button")) {
-        let changeTendered = cTotal - 
+        event.preventDefault()
+        // const data = new FormData(cashForm);
+        // let cashTendered = data.get("cash-tendered");
+        let cashTendered = document.getElementById("cash-tendered").value;
+
+        let cTax = currentTotal * tax;
+        let cTotal = cTax + currentTotal;
+        let changeDue = cashTendered - cTotal;
+        // changeGiven.innerText = "laksdflkajs";
+        // let changeDiv = document.createElement("div");
+        // changeDiv.classList.add("change-div");
+        // let changeP = document.createElement("p");
+        // changeP.classList.add("change-due");
+        // changeDiv.append(changeP);
+        // changeP.innerText = `Change due: $${changeDue.toFixed(2)}`;
+        // cashContainer.append(changeDiv);
+        // changeGiven.innerText = `Change due: $${changeDue.toFixed(2)}`;
+        console.log(changeDue);
     }
+    return false;
+    cashForm.reset()
+
+
 })
+
+// var text = document.getElementById('text');
+//     text.value += ' after clicking';
