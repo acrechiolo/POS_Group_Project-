@@ -111,16 +111,12 @@ cashContainer.addEventListener("click", (event) => {
     let cTotal = cTax + currentTotal;
     let changeDue = cashTendered - cTotal;
     if (event.target.classList.contains("cash-pay")) {
-        event.preventDefault()
-        if (cashTendered >= cTotal) {
-            changeGiven.innerText = `Change Due: $${changeDue.toFixed(2)}`;
-        } else {
-            changeGiven.innerText = "You don't have enough money!";
-        };
+
+        event.target.parentNode.parentNode.parentNode.childNode.remove();
+
     } else if (event.target.classList.contains("cash-receipt-button")) {
         event.preventDefault()
         cashReceipt.style.display = "flex";
-
         receiptText.innerText =
             `Subtotal: $${currentTotal}
         Tax: $${cTax.toFixed(2)}
@@ -135,6 +131,15 @@ cashContainer.addEventListener("click", (event) => {
 
     // console.log(changeDue);
 
+})
+
+//EXIT BUTTON//
+
+cashReceipt.addEventListener("click", (event) => {
+    if (event.target.classList.contains("exit-button")) {
+        event.target.parentNode.remove();
+    }
+    cashReceipt.reset();
 })
 
 
