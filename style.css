@@ -130,11 +130,9 @@ margin: 0 30px;
     align-items: center;
     z-index: 3;
   }
-
-  /* .book-container, .vinyl-container, .game-comtainer {
-      
-    
-  } */
+.button.continue-checkout {
+    background-color: #bf3326;
+}
 
 .item-box {
     display: flex;
@@ -144,6 +142,17 @@ margin: 0 30px;
     border: 1px solid black;
     padding: 2px;
     
+}
+
+.bought-items {
+    font-family: 'truckin';
+    padding: 10px;
+
+}
+
+.item-box {
+    font-family: 'truckin';
+
 }
 
  .p-price {
@@ -156,7 +165,7 @@ margin: 0 30px;
 .vinyl-box, .book-box, .game-box {
     border: 2px solid black;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     margin: 10px;
     padding: 10px;
@@ -169,7 +178,8 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 position: relative;
-width: 100px;
+width: 175px;
+margin-left:60px;
 }
 
 li {
@@ -210,7 +220,12 @@ li {
 
 
 .book {
-    background-color: #d99e32;
+    background-image: url(./assets/Background/book2.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    color: white;
+    /* background-color: #d99e32; */
     font-family: 'albaSuper';
     text-align: center;
     font-size: x-large;
@@ -220,7 +235,12 @@ li {
 
 
 .game {
-background-color: aqua;
+    background-image: url(./assets/Background/chess4.jpeg);
+    background-position: center; 
+    background-repeat: no-repeat;
+   /* background-size: cover; */
+    color: white;
+/* background-color: aqua; */
 font-family: 'albaSuper';
 text-align: center;
 font-size: x-large;
@@ -259,6 +279,21 @@ main {
     justify-content: flex-end;
     margin: 40px 30px 0px 0px;
     width: 200px;
+}
+
+.bought-items {
+    font-family: 'truckin';
+    padding: 10px;
+
+}
+
+.item-box {
+    font-family: 'truckin';
+
+}
+
+.para-button {
+    padding-left: 15px;
 }
 
 .bought-items {
