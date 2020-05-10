@@ -14,7 +14,7 @@ let itemPrice = document.createElement("p");
 
 
 mainItems.addEventListener("click", (event) => {
-    if (event.target.classList.contains("button")) {
+    if (event.target.classList.contains("ibutton")) {
         let amount = Number(event.target.getAttribute("data-amount"));
         let sub = currentTotal += amount;
         subTotal.innerText = `Subtotal: $${sub.toFixed(2)}`;
@@ -54,8 +54,10 @@ let creditContainer = document.querySelector(".credit-form-container");
 let cashContainer = document.querySelector(".cash-form-container");
 let creditTotal = document.querySelector(".credit-total");
 let paymentOptions = document.querySelector(".payment-options");
-let checkoutTotalCash = document.querySelector(".cash-checkout-total");
-let checkoutTotalCredit = document.querySelector(".credit-checkout-total");
+let checkoutTotalCash = document.querySelector(".cash-checkout-total-container");
+let checkoutTotalCredit = document.querySelector(".credit-checkout-total-container");
+let cashCheckoutExit = document.querySelector("#cashExitBtn");
+let creditCheckoutExit = document.querySelector("#creditExitBtn");
 
 // let paymentButtons = document.querySelector(".payment-button-container")
 
@@ -86,97 +88,161 @@ paymentOptions.addEventListener("click", (event) => {
         cashContainer.style.display = "flex";
         let cTax = currentTotal * tax;
         let cTotal = cTax + currentTotal;
-        checkoutTotalCash.innerText = `Checkout Total: $${cTotal.toFixed(2)}`;
+        let cashCheckoutSub = document.createElement("p");
+        cashCheckoutSub.innerText = `Subtotal: $${currentTotal.toFixed(2)}`;
+        let cashCheckoutTax = document.createElement("p");
+        cashCheckoutTax.innerText = `Sales Tax: $${cTax.toFixed(2)}`;
+        let cashCheckoutTotal = document.createElement("p");
+        cashCheckoutTotal.innerText = `Checkout Total: $${cTotal.toFixed(2)}`;
+        checkoutTotalCash.append(cashCheckoutSub, cashCheckoutTax, cashCheckoutTotal);
+        cashCheckoutExit.style.visibility = "visible";
+
 
     } else if (event.target.classList.contains("credit-checkout")) {
         creditContainer.style.display = "flex";
-        let cTax = currentTotal * tax;
-        let cTotal = cTax + currentTotal;
-        checkoutTotalCredit.innerText = `Checkout Total: $${cTotal.toFixed(2)}`;
+        let crTax = currentTotal * tax;
+        let crTotal = crTax + currentTotal;
+        let creditCheckoutSub = document.createElement("p");
+        creditCheckoutSub.innerText = `Subtotal: $${currentTotal.toFixed(2)}`;
+        let creditCheckoutTax = document.createElement("p");
+        creditCheckoutTax.innerText = `Sales Tax: $${crTax.toFixed(2)}`;
+        let creditCheckoutTotal = document.createElement("p");
+        creditCheckoutTotal.innerText = `Checkout Total: $${crTotal.toFixed(2)}`;
+        checkoutTotalCredit.append(creditCheckoutSub, creditCheckoutTax, creditCheckoutTotal);
+        creditCheckoutExit.style.visibility = "visible";
+
 
     }
 })
 
 
-//CASH CHANGE DUE FORM - NOT WORKING!!!!
-
 let changeGiven = document.querySelector(".change-due")
 let cashForm = document.querySelector(".cash-form")
 let cashReceipt = document.querySelector(".cash-receipt-container")
 let receiptText = document.querySelector(".receipt")
+let cashReceiptBtn = document.querySelector(".cash-receipt-button");
 
 cashContainer.addEventListener("click", (event) => {
     let cashTendered = document.getElementById("cash-tendered").value;
     let cTax = currentTotal * tax;
     let cTotal = cTax + currentTotal;
     let changeDue = cashTendered - cTotal;
-    if (event.target.classList.contains("cash-pay")) {
 
-        event.target.parentNode.parentNode.parentNode.childNode.remove();
+    if (event.target.classList.contains("cash-pay") && cashTendered >= cTotal) {
+        changeGiven.innerText = `Change Due: $${changeDue.toFixed(2)}`;
+        cashReceiptBtn.style.display = "flex";
+    } else if (event.target.classList.contains("cash-pay") && cashTendered < cTotal) {
+        //new code
+        let notEnough = document.createElement("p");
+        notEnough.classList.add("invalid-cash-amount")
+        notEnough.innerText = "You don't have enough money!"
+        //end new code
+        changeGiven.append(notEnough);
 
-    } else if (event.target.classList.contains("cash-receipt-button")) {
-        event.preventDefault()
+    } else if (event.target.classList.contains("fa-receipt")) {
+        event.preventDefault();
         cashReceipt.style.display = "flex";
-        receiptText.innerText =
-            `Subtotal: $${currentTotal}
+        //NEW CODE -- DOESN'T WORK - DOESNT ADD ITEMS TO RECEIPT - ASK MITCH/KYLE!
+        let cashItemsBox = document.createElement("div");
+        cashItemsBox.classList.add("cash-items-box");
+        let cashItemName = document.createElement("p");
+        let cashItemProduct = event.target.getAttribute("data-product");
+        cashItemName.innertext = `${cashItemProduct}`;
+        let cashItemPrice = document.createElement("p");
+        let cashItemProductPrice = event.target.getAttribute("data-amount");
+        cashItemPrice.innerText = `${cashItemProductPrice}`;
+        //END NEW CODE 
+        let receiptTextCash = document.createElement("p");
+        receiptTextCash.innerText =
+            `Subtotal: $${currentTotal.toFixed(2)}
         Tax: $${cTax.toFixed(2)}
         Total: $${cTotal.toFixed(2)}
         Cash Tendered: $${cashTendered}
         Change Due: $${changeDue.toFixed(2)}`;
-
-
+        receiptText.append(receiptTextCash);
+        //new code -- DOESNT WORK - ASK MITCH, KYLE
+        cashItemsBox.append(cashItemName, cashItemProduct);
+        cashReceipt.append(cashItemsBox);
+        //end new code
+        console.log(receiptTextCash);
+    } if (event.target.classList.contains("cash-checkout-exit-button")) {
+        event.target.parentNode.remove();
     }
-    // return false;
-    // cashForm.reset()
-
-    // console.log(changeDue);
-
 })
 
 //EXIT BUTTON//
 
 cashReceipt.addEventListener("click", (event) => {
     if (event.target.classList.contains("exit-button")) {
-        event.target.parentNode.remove();
+        event.target.parentNode.parentNode.remove();
     }
-    cashReceipt.reset();
-})
+    // cashReceipt.reset();
+});
 
 
+let creditFormContainer = document.querySelector(".credit-form")
+let InvalidCName = document.getElementById("invalidCardName");
+let InvalidCNum = document.getElementById("invalidCardNum");
+let InvalidCExp = document.getElementById("invalidCardExp");
+let InvalidCCVV = document.getElementById("invalidCardCVV");
+let paymentSuccessful = document.getElementById("paymentSuccess");
+let remainingBal = document.getElementById("balance-remaining");
 
-let creditReceiptContainer = document.querySelector(".credit-receipt-container");
-// let creditReceipt = document.querySelector(".credit-receipt-container");
-creditReceiptContainer.addEventListener("click", (event) => {
-    if (event.target.classList.contains("credit-checkout")) {
-        let amount = Number(event.target.getAttribute("data-amount"));
-        let sub = currentTotal += amount;
-        subTotal.innerText = `Subtotal: $${sub.toFixed(2)}`;
-        let taxTotal = sub * tax;
-        salesTax.innerText = `Sales Tax: $${taxTotal.toFixed(2)}`;
-        let tTotal = taxTotal + sub;
-        finalTotal.innerText = `Current Total: $${tTotal.toFixed(2)}`;
-        //cart, element div, 
-        let creditReceipt = document.querySelector(".credit-receipt-container");
-        // creditReceipt.classList.add("credit-receipt");
-        //want to create and pull from the info above the cart product/price,
 
-        //this syntax once broke everything
+let creditForm = document.querySelector(".credit-form")
+let creditReceipt = document.querySelector(".credit-receipt-container")
+let receiptCreditText = document.querySelector(".credit-receipt")
+let creditReceiptBtn = document.querySelector(".credit-receipt-button");
 
-        //end broke
-        // let itemName = document.createElement("p");
-        // itemName.classList.add("p-name");
-        // let itemPrice = document.createElement("p");
-        // itemPrice.classList.add("p-price");
-        // let product = event.target.getAttribute("data-product");
-        // //append those selected items into a div
-        // itemPrice.innerText = `$${amount.toFixed(2)}`;
-        // itemName.innerText = `${product}`;
-        // creditReceipt.append(itemName, itemPrice);
-        // creditContainer.append(creditReceipt);
-        // // this makes cart visible on mobile
-        // creditContainer.style.display = "flex";
+creditContainer.addEventListener("click", (event) => {
+    let cTax = currentTotal * 0.06;
+    let cTotal = cTax + currentTotal;
+    if (event.target.classList.contains("credit-checkout-button")) {
+        event.preventDefault();
+        let cardNameLength = document.getElementById("cardName").value.length;
+        let cardNumLength = document.getElementById("cardNum").value.length;
+        let expMonth = document.getElementById("expMonth");
+        let expMonthV = Number(expMonth.options[expMonth.selectedIndex].value);
+        let expYear = document.getElementById("expYear");
+        let expYearV = Number(expYear.options[expYear.selectedIndex].value);
+        let cardCVVlength = document.getElementById("CVV").value.length;
+        if (cardNameLength < 1) {
+            InvalidCName.innerText = "Please enter your name";
+        }
+        if (cardNumLength < 15) {
+            InvalidCNum.innerText = "Please enter valid 15-6 digit card number";
+        } if (expMonthV < 5 && expYearV === 1) {
+            InvalidCExp.innerText = "Your card is expired";
+        } if (cardCVVlength < 3) {
+            InvalidCCVV.innerText = "Please enter valid 3 digit validation number";
+        } else {
+            paymentSuccessful.innerText = "Thank you for your payment!";
+            remainingBal.innerText = "Balance: $0.00";
+            creditReceiptBtn.style.display = "flex";
+            console.log(creTax);
+        }
+    } else if (event.target.classList.contains("fa-receipt")) {
+        event.preventDefault();
+        creditReceipt.style.display = "flex";
+        let receiptTextcredit = document.createElement("p");
+        receiptTextcredit.innerText =
+            `Subtotal: $${currentTotal.toFixed(2)}
+        Tax: $${cTax.toFixed(2)}
+        Total: $${cTotal.toFixed(2)}
+        Total Paid: $${cTotal.toFixed(2)}
+        Balance Remaining: $0.00
+        `;
+        receiptCreditText.append(receiptTextcredit);
 
     }
+});
+
+
+creditReceipt.addEventListener("click", (event) => {
+    if (event.target.classList.contains("credit-exit-button")) {
+        event.target.parentNode.parentNode.remove();
+    }
+    // creditReceipt.reset();
 });
 
 
@@ -200,28 +266,3 @@ creditReceiptContainer.addEventListener("click", (event) => {
 //     }
 // })
 
-
-
-
-
-
-
-
-
-
-
-
-
-// var text = document.getElementById('text');
-//     text.value += ' after clicking';
-
-
-      // changeGiven.innerText = "laksdflkajs";
-        // let changeDiv = document.createElement("div");
-        // changeDiv.classList.add("change-div");
-        // let changeP = document.createElement("p");
-        // changeP.classList.add("change-due");
-        // changeDiv.append(changeP);
-        // changeP.innerText = `Change due: $${changeDue.toFixed(2)}`;
-        // cashContainer.append(changeDiv);
-        // changeGiven.innerText = `Change due: $${changeDue.toFixed(2)}`;
