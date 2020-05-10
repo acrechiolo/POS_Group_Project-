@@ -42,15 +42,21 @@
         </section>
         <!-- end new content pop-up -->
         <!-- new cash form  -->
-        <div class="cash-form-container">
-            <form class="cash-form">
-                <p class="cash-checkout-total">Checkout Total: $0.00</p>
-                <label for="cash-tendered">Tendered Amount:</label>
-                <input type="text" id="cash-tendered" name="cash-tendered">
-                <button type="submit" class="cash-pay-button">Checkout</button>
-                <p class="change-due"></p>
-            </form>
-        </div>
+        <section class="cash-form-container">
+            <div class="cash-form">
+                <form class="cash-form-input">
+                    <p class="cash-checkout-total">Checkout Total: $0.00</p>
+                    <label for="cash-tendered">Tendered Amount:</label>
+                    <input type="text" id="cash-tendered" name="cash-tendered">
+                    <button type="submit" class="cash-pay button">Checkout</button>
+                    <p class="change-due"></p>
+                    <button type="click" class="cash-receipt-button">View Receipt</button>
+                </form>
+            </div>
+            <div class="cash-receipt-container">
+                <p class="receipt">RECEIPT</p>
+            </div>
+        </section>
 
         <!-- end new cash form  -->
         <div class="credit-form-container">
@@ -64,7 +70,7 @@
                 <input type="text" id="expDate" name="expDate" placeholder="MM/YY">
                 <label for="CVV">CVV:</label>
                 <input type="text" id="CVV" name="CVV">
-                <button class="credit-checkout-button">Checkout</button>
+                <button class="credit-checkout button">Checkout</button>
             </form>
         </div>
         <div class="credit-receipt-container">
