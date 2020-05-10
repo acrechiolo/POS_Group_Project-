@@ -8,6 +8,9 @@ let finalTotal = document.querySelector(".final-total");
 let currentTotal = 0;
 let tax = 0.06;
 let cartBox = document.querySelector(".cart");
+let itemBox = document.createElement("div");
+let itemName = document.createElement("p");
+let itemPrice = document.createElement("p");
 
 
 mainItems.addEventListener("click", (event) => {
@@ -41,6 +44,7 @@ mainItems.addEventListener("click", (event) => {
         deleteButton.append(dIcon);
         itemBox.append(deleteButton, itemName, itemPrice);
         cartBox.append(itemBox);
+
         // this makes cart visible on mobile
         cartBox.style.display = "flex";
     }
@@ -98,36 +102,47 @@ paymentOptions.addEventListener("click", (event) => {
 
 let changeGiven = document.querySelector(".change-due")
 let cashForm = document.querySelector(".cash-form")
-cashContainer.addEventListener("click", (event) => {
-    if (event.target.classList.contains("cash-pay-button")) {
-        event.preventDefault()
-        // const data = new FormData(cashForm);
-        // let cashTendered = data.get("cash-tendered");
-        let cashTendered = document.getElementById("cash-tendered").value;
+let cashReceipt = document.querySelector(".cash-receipt-container")
+let receiptText = document.querySelector(".receipt")
 
-        let cTax = currentTotal * tax;
-        let cTotal = cTax + currentTotal;
-        let changeDue = cashTendered - cTotal;
+cashContainer.addEventListener("click", (event) => {
+    let cashTendered = document.getElementById("cash-tendered").value;
+    let cTax = currentTotal * tax;
+    let cTotal = cTax + currentTotal;
+    let changeDue = cashTendered - cTotal;
+    if (event.target.classList.contains("cash-pay")) {
+        event.preventDefault()
         if (cashTendered >= cTotal) {
             changeGiven.innerText = `Change Due: $${changeDue.toFixed(2)}`;
         } else {
             changeGiven.innerText = "You don't have enough money!";
-        }
+        };
+    } else if (event.target.classList.contains("cash-receipt-button")) {
+        event.preventDefault()
+        cashReceipt.style.display = "flex";
+
+        receiptText.innerText =
+            `Subtotal: $${currentTotal}
+        Tax: $${cTax.toFixed(2)}
+        Total: $${cTotal.toFixed(2)}
+        Cash Tendered: $${cashTendered}
+        Change Due: $${changeDue.toFixed(2)}`;
+
 
     }
-    return false;
-    cashForm.reset()
+    // return false;
+    // cashForm.reset()
 
-    console.log(changeDue);
+    // console.log(changeDue);
 
 })
 
 
 
 let creditReceiptContainer = document.querySelector(".credit-receipt-container");
-// let creditReceipt = document.querySelector(".credit-receipt");
-creditContainer.addEventListener("click", (event) => {
-    if (event.target.classList.contains("credit-checkout-button")) {
+// let creditReceipt = document.querySelector(".credit-receipt-container");
+creditReceiptContainer.addEventListener("click", (event) => {
+    if (event.target.classList.contains("credit-checkout")) {
         let amount = Number(event.target.getAttribute("data-amount"));
         let sub = currentTotal += amount;
         subTotal.innerText = `Subtotal: $${sub.toFixed(2)}`;
@@ -136,25 +151,25 @@ creditContainer.addEventListener("click", (event) => {
         let tTotal = taxTotal + sub;
         finalTotal.innerText = `Current Total: $${tTotal.toFixed(2)}`;
         //cart, element div, 
-        let creditReceipt = document.createElement("div");
-        creditReceipt.classList.add("credit-receeipt");
+        let creditReceipt = document.querySelector(".credit-receipt-container");
+        // creditReceipt.classList.add("credit-receipt");
         //want to create and pull from the info above the cart product/price,
 
         //this syntax once broke everything
 
         //end broke
-        let itemName = document.createElement("p");
-        itemName.classList.add("p-name");
-        let itemPrice = document.createElement("p");
-        itemPrice.classList.add("p-price");
-        let product = event.target.getAttribute("data-product");
-        //append those selected items into a div
-        itemPrice.innerText = `$${amount.toFixed(2)}`;
-        itemName.innerText = `${product}`;
-        creditReceipt.append(itemName, itemPrice);
-        creditReceiptContainer.append(creditReceipt);
-        // this makes cart visible on mobile
-        creditReceiptContainer.style.display = "flex";
+        // let itemName = document.createElement("p");
+        // itemName.classList.add("p-name");
+        // let itemPrice = document.createElement("p");
+        // itemPrice.classList.add("p-price");
+        // let product = event.target.getAttribute("data-product");
+        // //append those selected items into a div
+        // itemPrice.innerText = `$${amount.toFixed(2)}`;
+        // itemName.innerText = `${product}`;
+        // creditReceipt.append(itemName, itemPrice);
+        // creditContainer.append(creditReceipt);
+        // // this makes cart visible on mobile
+        // creditContainer.style.display = "flex";
 
     }
 });
