@@ -131,14 +131,12 @@ margin: 30px 30px;
     z-index: 3;
   }
 .continue-checkout {
-    background-color: #bf3326;
+    background-color: #73e6bc;
+    padding: 5px;
+    border-radius: 15%;
+    
 }
 
-
-
-.delete-button{
-    padding: 7px;
-}
 
 .fa-times::before {
     padding: 7px;
@@ -255,9 +253,17 @@ input[type=text], select {
     justify-content: space-between;
     width: 95%;
     align-items: center;
-    border: 1px solid black;
+    border: 2px solid #6fa692;
     padding: 2px;
+    font-family: 'truckin';
+    background-color: #EBDF0F;
     
+}
+
+.delete-button{
+    padding: 7px;
+    background-color: rgb(205, 22, 22);
+    border-radius: 25%;
 }
 
 .bought-items {
@@ -266,14 +272,14 @@ input[type=text], select {
 
 }
 
-.item-box {
-    font-family: 'truckin';
-
-}
 
  .p-price {
      margin-left: 10px;
 
+ }
+
+ .p-name {
+     margin-left: 10px;
  }
 
 
@@ -287,6 +293,19 @@ input[type=text], select {
     padding: 10px;
     flex: 2;
 
+}
+
+.vinyl-box {
+    border-color: #514F76;
+
+}
+
+.book-box{
+    border-color: rgb(159, 49, 55);
+}
+
+.game-box {
+    border-color: rgb(213, 204, 33);  
 }
 
 .para-button {
@@ -405,10 +424,13 @@ main {
 
 .bought-items {
     font-family: 'truckin';
-    padding: 10px;
+    padding: 20px;
+    background-color: #f2e2ce;
 
 }
-
+/* .books {
+    margin: 35px;
+} */
 .item-box {
     font-family: 'truckin';
 
@@ -421,7 +443,7 @@ main {
 .bought-items {
     background-color: white;
 }
-.music, .book, .game {
+.music, .books, .game {
     margin-top: 40px;
 }
 
