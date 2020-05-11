@@ -11,6 +11,8 @@ let cartBox = document.querySelector(".cart");
 let itemBox = document.createElement("div");
 let itemName = document.createElement("p");
 let itemPrice = document.createElement("p");
+let cashReceipt = document.querySelector(".cash-receipt-container")
+let receiptText = document.querySelector(".receipt")
 
 
 mainItems.addEventListener("click", (event) => {
@@ -37,16 +39,26 @@ mainItems.addEventListener("click", (event) => {
         itemName.classList.add("p-name");
         let itemPrice = document.createElement("p");
         itemPrice.classList.add("p-price");
+        let itemCashName = document.createElement("p");
+        itemCashName.classList.add("icp-name");
+        let itemCashPrice = document.createElement("p");
+        itemCashPrice.classList.add("icc-price");
+
         let product = event.target.getAttribute("data-product");
+        // let receiptBox = document.createElement("div");
         //append those selected items into a div
         itemPrice.innerText = `$${amount.toFixed(2)}`;
         itemName.innerText = `${product}`;
+        itemCashPrice.innerText = `$${amount.toFixed(2)}`;
+        itemCashName.innerText = `${product}`;
         deleteButton.append(dIcon);
         itemBox.append(deleteButton, itemName, itemPrice);
+        // receiptBox.append(itemName, itemPrice);
         cartBox.append(itemBox);
-
+        receiptText.append(itemCashPrice, itemCashName);
         // this makes cart visible on mobile
         cartBox.style.display = "flex";
+
     }
 });
 
@@ -123,8 +135,6 @@ paymentOptions.addEventListener("click", (event) => {
 
 let changeGiven = document.querySelector(".change-due")
 let cashForm = document.querySelector(".cash-form")
-let cashReceipt = document.querySelector(".cash-receipt-container")
-let receiptText = document.querySelector(".receipt")
 let cashReceiptBtn = document.querySelector(".cash-receipt-button");
 
 cashContainer.addEventListener("click", (event) => {
