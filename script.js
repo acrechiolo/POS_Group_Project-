@@ -145,10 +145,11 @@ cashContainer.addEventListener("click", (event) => {
     let changeDue = cashTendered - cTotal;
 
     if (event.target.classList.contains("cash-pay") && cashTendered >= cTotal) {
+
         changeGiven.innerText = `Change Due: $${changeDue.toFixed(2)}`;
         cashReceiptBtn.style.display = "flex";
     } else if (event.target.classList.contains("cash-pay") && cashTendered < cTotal) {
-        //new code
+
         let notEnough = document.createElement("p");
         notEnough.classList.add("invalid-cash-amount")
         notEnough.innerText = "You don't have enough money!"
@@ -158,16 +159,6 @@ cashContainer.addEventListener("click", (event) => {
     } else if (event.target.classList.contains("fa-receipt")) {
 
         cashReceipt.style.display = "flex";
-        //NEW CODE -- DOESN'T WORK - DOESNT ADD ITEMS TO RECEIPT - ASK MITCH/KYLE!
-        let cashItemsBox = document.createElement("div");
-        cashItemsBox.classList.add("cash-items-box");
-        let cashItemName = document.createElement("p");
-        let cashItemProduct = event.target.getAttribute("data-product");
-        cashItemName.innertext = `${cashItemProduct}`;
-        let cashItemPrice = document.createElement("p");
-        let cashItemProductPrice = event.target.getAttribute("data-amount");
-        cashItemPrice.innerText = `${cashItemProductPrice}`;
-        //END NEW CODE 
         let receiptTextCash = document.createElement("p");
         receiptTextCash.innerText =
             `Subtotal: $${currentTotal.toFixed(2)}
@@ -181,9 +172,10 @@ cashContainer.addEventListener("click", (event) => {
         cashReceipt.append(cashItemsBox);
         //end new code
         console.log(receiptTextCash);
-    } if (event.target.classList.contains("cash-checkout-exit-button")) {
-        event.target.parentNode.remove();
-        // cashCheckoutExit.style.visibility = "invisible";
+    } if (event.target.classList.contains("fa-times")) {
+
+        // event.target.parentNode.remove();
+        cashCheckoutExit.style.visibility = "invisible";
 
     }
 })

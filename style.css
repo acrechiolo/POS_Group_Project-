@@ -83,15 +83,27 @@ list-style: none;
 
 .nav-link {
     text-decoration: none;
+    margin-left: 5px;
+    color: black;
 }
 .nav2, .nav3 {
     display: none;
 }
 
+.main-content {
+ margin: 20px;
+ display: flex;
+ justify-content: center;
+ flex-direction: column;
+ max-width: 600px;
 
-main {
+}
+.section-container {
+display: flex;
+flex-direction: column;
 flex: 1;
 margin: 30px 30px;
+max-width: 80%;
 }
 
 /* .vinyl-container, .book-container, .game-container {
@@ -286,6 +298,7 @@ input[type=text], select {
     margin: 10px;
     padding: 10px;
     flex: 2;
+    /* width: 100%; */
 
 }
 
@@ -381,14 +394,15 @@ footer {
      background-position: center;
      background-repeat: no-repeat;
      background-size: cover;
+     height: 100vh;
 
  }
-main {
+.section-container {
     display: flex;
     flex-direction: row;
-    margin-right: 30px;
-    justify-content: space-between;
-    
+    justify-content: space-evenly;
+    width: 1200px;
+    flex: 2;
 }
 
 .nav2, .nav3 {
