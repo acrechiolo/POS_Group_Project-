@@ -39,23 +39,35 @@ mainItems.addEventListener("click", (event) => {
         itemName.classList.add("p-name");
         let itemPrice = document.createElement("p");
         itemPrice.classList.add("p-price");
+
         let itemCashName = document.createElement("p");
         itemCashName.classList.add("icp-name");
         let itemCashPrice = document.createElement("p");
         itemCashPrice.classList.add("icc-price");
+
+        let itemCreditName = document.createElement("p");
+        itemCreditName.classList.add("icr-name");
+        let itemCreditPrice = document.createElement("p");
+        itemCreditPrice.classList.add("icr-price");
 
         let product = event.target.getAttribute("data-product");
         // let receiptBox = document.createElement("div");
         //append those selected items into a div
         itemPrice.innerText = `$${amount.toFixed(2)}`;
         itemName.innerText = `${product}`;
+
         itemCashPrice.innerText = `$${amount.toFixed(2)}`;
         itemCashName.innerText = `${product}`;
+
+        itemCreditPrice.innerText = `$${amount.toFixed(2)}`;
+        itemCreditName.innerText = `${product}`;
+
         deleteButton.append(dIcon);
         itemBox.append(deleteButton, itemName, itemPrice);
         // receiptBox.append(itemName, itemPrice);
         cartBox.append(itemBox);
         receiptText.append(itemCashPrice, itemCashName);
+        receiptCreditText.append(itemCreditPrice, itemCreditName)
         // this makes cart visible on mobile
         cartBox.style.display = "flex";
 
