@@ -91,7 +91,7 @@ list-style: none;
 
 main {
 flex: 1;
-margin: 0 30px;
+margin: 30px 30px;
 }
 
 /* .vinyl-container, .book-container, .game-container {
@@ -219,7 +219,7 @@ li {
 
 .book {
     height: 150px;
-    width: 
+     
 }
 
 .music {
@@ -231,6 +231,7 @@ li {
     color: white;
     text-align: center;
     font-size: x-large;
+    margin: 0px;
 }
 
 
