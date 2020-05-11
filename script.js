@@ -58,6 +58,7 @@ let checkoutTotalCash = document.querySelector(".cash-checkout-total-container")
 let checkoutTotalCredit = document.querySelector(".credit-checkout-total-container");
 let cashCheckoutExit = document.querySelector("#cashExitBtn");
 let creditCheckoutExit = document.querySelector("#creditExitBtn");
+let pmtsCheckoutExit = document.querySelector("#pmtsExitBtn");
 
 // let paymentButtons = document.querySelector(".payment-button-container")
 
@@ -79,6 +80,7 @@ cartBox.addEventListener("click", (event) => {
 cartBox.addEventListener("click", (event) => {
     if (event.target.classList.contains("continue-checkout")) {
         paymentOptions.style.display = "flex";
+        pmtsCheckoutExit.style.visibility = "visible";
     }
 });
 
@@ -112,6 +114,9 @@ paymentOptions.addEventListener("click", (event) => {
         creditCheckoutExit.style.visibility = "visible";
 
 
+    } else if (event.target.classList.contains("fa-times")) {
+        paymentOptions.style.display = "none";
+
     }
 })
 
@@ -123,6 +128,7 @@ let receiptText = document.querySelector(".receipt")
 let cashReceiptBtn = document.querySelector(".cash-receipt-button");
 
 cashContainer.addEventListener("click", (event) => {
+
     let cashTendered = document.getElementById("cash-tendered").value;
     let cTax = currentTotal * tax;
     let cTotal = cTax + currentTotal;
@@ -140,7 +146,7 @@ cashContainer.addEventListener("click", (event) => {
         changeGiven.append(notEnough);
 
     } else if (event.target.classList.contains("fa-receipt")) {
-        event.preventDefault();
+
         cashReceipt.style.display = "flex";
         //NEW CODE -- DOESN'T WORK - DOESNT ADD ITEMS TO RECEIPT - ASK MITCH/KYLE!
         let cashItemsBox = document.createElement("div");
@@ -167,6 +173,8 @@ cashContainer.addEventListener("click", (event) => {
         console.log(receiptTextCash);
     } if (event.target.classList.contains("cash-checkout-exit-button")) {
         event.target.parentNode.remove();
+        // cashCheckoutExit.style.visibility = "invisible";
+
     }
 })
 
@@ -179,7 +187,7 @@ cashReceipt.addEventListener("click", (event) => {
     // cashReceipt.reset();
 });
 
-
+///CREDIT FORM CONTAINER 
 let creditFormContainer = document.querySelector(".credit-form")
 let InvalidCName = document.getElementById("invalidCardName");
 let InvalidCNum = document.getElementById("invalidCardNum");
@@ -245,24 +253,4 @@ creditReceipt.addEventListener("click", (event) => {
     // creditReceipt.reset();
 });
 
-
-
-
-//         let amountR = (event.target.getAttribute("data-amount"));
-//         let itemNameR = document.createElement("p");
-//         itemNameR.classList.add("p-name");
-//         let itemPriceR = document.createElement("p");
-//         itemPriceR.classList.add("p-price");
-//         let productR = event.target.getAttribute("data-product");
-//         //append those selected items into a div
-//         itemPriceR.innerText = `$${amountR}`;
-//         itemNameR.innerText = `${productR}`;
-//         creditReceipt.append(itemNameR, itemPriceR);
-//         creditReceiptContainer.append(creditReceipt);
-//         console.log(amountR);
-
-//         //display
-//         creditReceiptContainer.style.display = "flex";
-//     }
-// })
 

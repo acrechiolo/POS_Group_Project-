@@ -42,22 +42,26 @@
             <div class="payment-button-container">
                 <button class="cash-checkout paybutton">Cash</button>
                 <button class="credit-checkout paybutton">Credit/Debit</button>
+                <button type="click" class="payment-options-exit-button"><i class="fas fa-times"
+                        id="pmtsExitBtn"></i></button>
             </div>
         </section>
         <!-- end new content pop-up -->
         <!-- new cash form  -->
         <section class="cash-form-container">
             <div class="cash-form">
-                <form class="cash-form-input">
-                    <div class="cash-checkout-total-container"></div>
-                    <label for="cash-tendered">Tendered Amount:</label>
-                    <input type="text" id="cash-tendered" name="cash-tendered">
-                    <button type="button" class="cash-pay button">Pay Now</button>
-                    <p class="change-due"></p>
-                    <button type="click" class="cash-receipt-button"> <i class="fas fa-receipt"></i></button>
-                    <button type="click" class="cash-checkout-exit-button cbutton"><i class="fas fa-times"
-                            id="cashExitBtn"></i></button>
-                </form>
+                <div class="cash-form-DIV">
+                    <form class="cash-form-input">
+                        <div class="cash-checkout-total-container"></div>
+                        <label for="cash-tendered">Tendered Amount:</label>
+                        <input type="text" id="cash-tendered" name="cash-tendered"><br>
+                        <button type="button" class="cash-pay pbutton">Submit</button><br>
+                        <p class="change-due"></p>
+                        <button type="click" class="cash-receipt-button"> <i class="fas fa-receipt"></i></button>
+                        <button type="click" class="cash-checkout-exit-button cbutton"><i class="fas fa-times"
+                                id="cashExitBtn"></i></button>
+                    </form>
+                </div>
             </div>
             <div class="cash-receipt-container">
                 <div class="receipt">
@@ -72,14 +76,14 @@
             <form class="credit-form">
                 <p class="credit-checkout-total-container"></p>
                 <div class="credit-form-DIV">
-                    <label for="cardName">Name:</label>
+                    <label for="cardName">Name:</label><br>
                     <input type="text" id="cardName" name="cardName">
                     <p id="invalidCardName"></p>
-                    <label for="cardNum">Card Number:</label>
+                    <label for="cardNum">Card Number:</label><br>
                     <input type="text" id="cardNum" name="cardNum" maxlength="16">
                     <p id="invalidCardNum"></p>
                     <!-- new code -->
-                    <p>Expiration Date</p>
+                    <p>Expiration Date:</p>
                     <label for="expMonth"></label>
                     <select name="expMonth" id="expMonth">
                         <option selected>Expiration Month</option>
