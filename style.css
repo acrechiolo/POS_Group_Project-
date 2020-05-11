@@ -112,15 +112,15 @@ margin: 30px 30px;
   
 }
 
-  .credit-form, .payment-button-container, .cash-form, .receipt{
+  .credit-form, .payment-button-container, .cash-form, .receipt, .cash-form-inout, .credit-receipt{
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
     padding: 20px;
 }
-.credit-form-container, .payment-options, .cash-form-container, .cash-receipt-container{
+.credit-form-container, .payment-options, .cash-form-container,   .cash-receipt-container, .credit-receipt-container{
     height: 100vh;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.5);
     position: fixed;
     top: 0;
     right:0;
@@ -135,6 +135,7 @@ margin: 30px 30px;
 }
 
 
+
 .delete-button{
     padding: 7px;
 }
@@ -142,6 +143,112 @@ margin: 30px 30px;
 .fa-times::before {
     padding: 7px;
 }
+
+  .cash-form, .credit-form, .payment-button-container{
+      position: relative;
+      background-color: #6fa692;
+      color: black;
+      border-radius: 5px;
+      border: 3px groove #d96b2b;
+      display: flex;
+      justify-content: center;
+      font-family: 'moscoso';
+         
+  }
+
+.credit-form-DIV, .cash-form-DIV {
+    display: inline-block;
+    color: #40180f;
+    background-color: #fff;
+    border: 3px groove #d96b2b;
+    font-family: 'truckin';
+    margin: 10px 0;
+    padding: 5px;
+    flex: 1;
+   
+}
+
+input[type=text], select { 
+    display: inline-block;
+    border-radius: 5px;
+    border: 3px groove #d96b2b;
+    text-decoration: none;
+    font-family: 'truckin';
+    margin: 10px 0;
+    /* padding: 5px; */
+    flex: 1;
+}
+
+
+  .cash-checkout-exit-button, .credit-checkout-exit-button, #pmtsExitBtn, #cashExitBtn, #creditExitBtn {
+    visibility: hidden;
+    position: absolute;
+    border-radius: 50px;
+    color: #d99e32;
+    font-size: 30px;
+    /* border: 2px groove #40180f ; */
+    padding: 5px;
+    /* background-color: #f2e2ce; */
+    left: -8px;
+    top: -9px;
+  }
+  #pmtsExitBtn{
+    font-size: 25px;
+    left: -14px;
+    top: -15px;
+  }
+  .invalid-cash-amount, #invalidCardName, #invalidCardNum, #invalidCardExp, #invalidCardCVV {
+    color: red;
+    font-family: 'moscoso';
+    font-size: 12px;
+    border: 1px solid black;
+    background-color:  rgba(201, 197, 191, 0.5);
+    text-align: center;
+  }
+  .cash-receipt-button, .credit-receipt-button{
+      display: none;
+  }
+
+  .cbutton{
+      background-color:#d96b2b;
+      padding: tpx;
+      font-family: 'albaSuper';
+      font-size: 15px;
+      border-radius: 5px;
+      border: 2px ridge white;
+  }
+  .paybutton {
+    background-color:#d96b2b;
+    padding: 10px;
+    margin: 5px;
+    font-family: 'albaSuper';
+    font-size: 15px;
+    border-radius: 5px;
+    border: 2px ridge white;
+  }
+
+  .pbutton {
+      border: 2px groove #d96b2b;
+      border-radius: 5px;
+      background-color: #f2e2ce;
+      font-family: 'albaSuper';
+  }
+  .fa-receipt, .fa-print {
+    font-size: 20px;
+    margin: 10px 0;
+    padding:10px;
+  }
+
+  .receipt, .credit-receipt{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+ 
+  /* .book-container, .vinyl-container, .game-comtainer {
+      
+    
+  } */
+
 
 .item-box {
     display: flex;
@@ -196,7 +303,7 @@ li {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.button{
+.ibutton{
     border-radius: 15px;
     background-color: #40180f;
     padding: 5px;
@@ -271,7 +378,6 @@ footer {
 
 @media only screen and (min-width: 768px) {
  body {
-     background-image: url(./assets/3d-diagonal-paper-stripes-retro-wallpaper-vector.jpg);
      background-position: center;
      background-repeat: no-repeat;
      background-size: cover;
