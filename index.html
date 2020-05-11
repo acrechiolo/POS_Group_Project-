@@ -16,6 +16,7 @@
     <header class="header">
         <div class="header-content">
             <h1 class="logo">BBV</h1>
+            <h2 class="slogan">It's all in the name, baby!</h2>
             <nav>
                 <ul class="nav-list">
                     <li class="nav-item nav2"><a class="nav-link" href="#">About </a></li>
@@ -57,13 +58,13 @@
                         <button type="button" class="cash-pay pbutton">Submit</button><br>
                         <p class="change-due"></p>
                         <button type="button" class="cash-receipt-button"> <i class="fas fa-receipt"></i></button>
-                        <button type="button" class="cash-checkout-exit-button cbutton"><i class="fas fa-times"
+                        <button type="click" class="cash-checkout-exit-button cbutton"><i class="fas fa-times"
                                 id="cashExitBtn"></i></button>
                     </form>
                 </div>
             </div>
-            <div class="cash-receipt-container">
-                <div class="receipt">
+            <div class="cash-receipt-container rcstyle">
+                <div class="receipt rstyle">
                     <button class="exit-button">Exit</button>
                     <button class="print-button" onmousedown="printSound.play()"><i class="fas fa-print"></i></button>
 
@@ -119,12 +120,12 @@
                 <p id="paymentSuccess"></p>
                 <p id="balance-remaining"></p>
                 <button type="button" class="credit-receipt-button"> <i class="fas fa-receipt"></i></button>
-                <button type="button" class="credit-checkout-exit-button"><i class="fas fa-times"
+                <button type="click" class="credit-checkout-exit-button"><i class="fas fa-times"
                         id="creditExitBtn"></i></button>
             </form>
         </div>
-        <div class="credit-receipt-container">
-            <div class="credit-receipt">
+        <div class="credit-receipt-container rcstyle">
+            <div class="credit-receipt rstyle">
                 <button class="credit-exit-button">Exit</button>
                 <button class="credit-print-button" onmousedown="printSound.play()"><i
                         class="fas fa-print"></i></button>

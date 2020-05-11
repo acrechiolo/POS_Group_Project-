@@ -193,9 +193,9 @@ cashContainer.addEventListener("click", (event) => {
         cashReceipt.append(cashItemsBox);
         //end new code
         console.log(receiptTextCash);
-    } if (event.target.classList.contains("cash-checkout-exit-button")) {
-        event.target.parentNode.remove();
-        // cashCheckoutExit.style.visibility = "invisible";
+    } if (event.target.classList.contains("fa-times")) {
+        // event.target.parentNode.parentNode.parentNode.parentNode.remove();
+        cashCheckoutExit.style.visibility = "invisible";
 
     }
 })

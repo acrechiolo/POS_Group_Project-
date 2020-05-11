@@ -69,8 +69,12 @@ padding: 5px;
 
 .logo{
     font-family: 'moscoso';
+    font-size: 50px;
 }
-
+.slogan {
+    font-family: 'albaSuper';
+    font-size: 30px;
+}
 .nav-list{
 display: flex;
 list-style: none;
@@ -82,6 +86,9 @@ list-style: none;
 
 .nav-link {
     text-decoration: none;
+    margin-left: 5px;
+    color: black;
+    font-family: 'truckin';
 }
 .nav2, .nav3 {
     display: none;
@@ -93,10 +100,6 @@ flex: 1;
 margin: 30px 30px;
 }
 
-/* .vinyl-container, .book-container, .game-container {
-    width: 431px;
-    height: 124px;
-} */
 
 .cart {
 
@@ -240,6 +243,11 @@ input[type=text], select {
     display: flex;
     flex-direction: column-reverse;
   }
+  .rstyle {
+      font-size: 15px;
+      display: flex;
+      justify-content: space-evenly;
+  }
  
   /* .book-container, .vinyl-container, .game-comtainer {
       
@@ -348,8 +356,8 @@ li {
 }
 
 .music {
-    background-image: url(./assets/Background/vinylback2.jpg);
-    background-position: center;
+    background-image: url(./assets/new_vinyl.jpg);
+    /* background-position: center; */
     background-repeat: no-repeat;
     /* background-size: cover; */
     font-family: 'albaSuper';
