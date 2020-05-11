@@ -130,8 +130,17 @@ margin: 0 30px;
     align-items: center;
     z-index: 3;
   }
-.button.continue-checkout {
+.continue-checkout {
     background-color: #bf3326;
+}
+
+
+.delete-button{
+    padding: 7px;
+}
+
+.fa-times::before {
+    padding: 7px;
 }
 
 .item-box {
@@ -184,6 +193,7 @@ margin-left:60px;
 
 li {
     list-style: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .button{
@@ -207,6 +217,11 @@ li {
     width: 100px;
 }
 
+.book {
+    height: 150px;
+    width: 
+}
+
 .music {
     background-image: url(./assets/Background/vinylback2.jpg);
     background-position: center;
@@ -219,7 +234,7 @@ li {
 }
 
 
-.book {
+.book-label {
     background-image: url(./assets/Background/book2.jpeg);
     background-position: center;
     background-repeat: no-repeat;
