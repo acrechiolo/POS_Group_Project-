@@ -91,7 +91,7 @@ list-style: none;
 
 main {
 flex: 1;
-margin: 0 30px;
+margin: 30px 30px;
 }
 
 /* .vinyl-container, .book-container, .game-container {
@@ -130,6 +130,19 @@ margin: 0 30px;
     align-items: center;
     z-index: 3;
   }
+.continue-checkout {
+    background-color: #bf3326;
+}
+
+
+
+.delete-button{
+    padding: 7px;
+}
+
+.fa-times::before {
+    padding: 7px;
+}
 
   .cash-form, .credit-form, .payment-button-container{
       position: relative;
@@ -236,6 +249,7 @@ input[type=text], select {
     
   } */
 
+
 .item-box {
     display: flex;
     justify-content: space-between;
@@ -244,6 +258,17 @@ input[type=text], select {
     border: 1px solid black;
     padding: 2px;
     
+}
+
+.bought-items {
+    font-family: 'truckin';
+    padding: 10px;
+
+}
+
+.item-box {
+    font-family: 'truckin';
+
 }
 
  .p-price {
@@ -256,7 +281,7 @@ input[type=text], select {
 .vinyl-box, .book-box, .game-box {
     border: 2px solid black;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     margin: 10px;
     padding: 10px;
@@ -269,11 +294,13 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 position: relative;
-width: 100px;
+width: 175px;
+margin-left:60px;
 }
 
 li {
     list-style: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .ibutton{
@@ -297,6 +324,11 @@ li {
     width: 100px;
 }
 
+.book {
+    height: 150px;
+     
+}
+
 .music {
     background-image: url(./assets/Background/vinylback2.jpg);
     background-position: center;
@@ -306,11 +338,17 @@ li {
     color: white;
     text-align: center;
     font-size: x-large;
+    margin: 0px;
 }
 
 
-.book {
-    background-color: #d99e32;
+.book-label {
+    background-image: url(./assets/Background/book2.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    color: white;
+    /* background-color: #d99e32; */
     font-family: 'albaSuper';
     text-align: center;
     font-size: x-large;
@@ -320,7 +358,12 @@ li {
 
 
 .game {
-background-color: aqua;
+    background-image: url(./assets/Background/chess4.jpeg);
+    background-position: center; 
+    background-repeat: no-repeat;
+   /* background-size: cover; */
+    color: white;
+/* background-color: aqua; */
 font-family: 'albaSuper';
 text-align: center;
 font-size: x-large;
@@ -358,6 +401,21 @@ main {
     justify-content: flex-end;
     margin: 40px 30px 0px 0px;
     width: 200px;
+}
+
+.bought-items {
+    font-family: 'truckin';
+    padding: 10px;
+
+}
+
+.item-box {
+    font-family: 'truckin';
+
+}
+
+.para-button {
+    padding-left: 15px;
 }
 
 .bought-items {
